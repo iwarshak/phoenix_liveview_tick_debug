@@ -1,0 +1,2 @@
+<%= live_render(@conn,  PhoenixLiveviewWeb.CounterLive, session: %{"extra_token" => "foo"}) %>
+
