@@ -4,7 +4,7 @@ defmodule PhoenixLiveviewWeb.CounterLive do
 
   def render(assigns) do
     ~L"""
-    <script id="run_<%= @tick %>">
+    <script id="run_<%= @tick %>" phx-hook="Tick">
       console.log("I was updated <%= @tick %> times")
     </script>
     Current count: <%= @counter %>

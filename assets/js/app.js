@@ -9,6 +9,14 @@ import css from "../css/app.css"
 //
 // Import dependencies
 //
+
+const Hooks = {};
+Hooks.Tick = {
+  mounted() {
+    eval(this.el.innerHTML);
+  }
+}
+
 import "phoenix_html"
 
 // Import local files
@@ -20,5 +28,5 @@ import {Socket} from "phoenix"
 import LiveSocket from "phoenix_live_view"
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content");
-let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}});
+let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}, hooks: Hooks});
 liveSocket.connect()
